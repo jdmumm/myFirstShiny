@@ -1,7 +1,6 @@
 library(shiny)
 library(tidyverse)
 
-#raw <- read.csv("../data/moose2021.csv")
 m21 <- read.csv("../data/moose2021.csv")
 g21 <- read.csv("../data/goat2021.csv")
 m21 %>% rbind(g21) -> raw
@@ -13,7 +12,7 @@ raw %>% mutate(
 
 # Define UI
 ui <- fluidPage(
-  titlePanel("2021 Alaska Moose and Goat Harvest Data"),
+  titlePanel("2021 Alaska Moose and Goat Harvest"),
   sidebarLayout( 
     sidebarPanel(
       selectInput("species", "Species:", choices = sort(unique(dat$species)), selected = "Moose"),
@@ -21,7 +20,7 @@ ui <- fluidPage(
       selectInput("hunt", "Hunt:", choices = NULL, selected = "GM000"), 
       checkboxInput("gmu_filter", "Filter By GMU", value = TRUE), 
       helpText("Note: Due to missing values, filtering by GMU may not always provide all harvests, especially for goats.
-               However it is useful for general hunts such as GM000 because those hunts spans many GMUs."),
+               However it is useful for general hunts such as GM000 because those hunts span many GMUs."),
       sliderInput("bin",
                   "Bin Width:",
                   min = .1,
