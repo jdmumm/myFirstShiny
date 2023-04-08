@@ -20,7 +20,7 @@ ui <- fluidPage(
       selectInput("hunt", "Hunt:", choices = NULL, selected = "GM000"), 
       checkboxInput("gmu_filter", "Filter By GMU", value = TRUE), 
       helpText("Note: Due to missing values, filtering by GMU may not always provide all harvests, especially for goats.
-               However it is useful for general hunts such as GM000 because those hunts span many GMUs."),
+               However, it is useful for general hunts such as GM000 because those hunts span many GMUs."),
       sliderInput("bin",
                   "Bin Width:",
                   min = .1,
