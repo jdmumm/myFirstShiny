@@ -1,8 +1,8 @@
 library(shiny)
 library(tidyverse)
 
-m21 <- read.csv("../data/moose2021.csv")
-g21 <- read.csv("../data/goat2021.csv")
+m21 <- read.csv("moose2021.csv")
+g21 <- read.csv("goat2021.csv")
 m21 %>% rbind(g21) -> raw
 
 raw %>% mutate(
@@ -72,7 +72,7 @@ server <- function(input, output, session) {
     filt_dat <- filt()
     p1 <- ggplot(data = filt_dat, aes(date,Kills))
     p1 + geom_smooth() + geom_point() + labs(x = "Date", title = "Hunt Timing")
-  })
+  }, height = 350)
   
   #plot Antler Spread / Horn Length
   output$plot2 <- renderPlot({
@@ -81,7 +81,7 @@ server <- function(input, output, session) {
     p2 + geom_histogram(binwidth = input$bin, aes (y = ..count..)) + 
       geom_density(bw = input$bin, color = "red", lwd = 1, aes( y = ..count..)) + 
       labs(title = "Antler Spread or Horn Length", x = "Inches", y = "Count")
-  })
+  }, height = 350)
 }
 
 # Run the app
