@@ -1,0 +1,13 @@
+name: myFirstShiny
+title: myFirstShiny
+username:
+account: jdmumm
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8795052
+bundleId: 7063594
+url: https://jdmumm.shinyapps.io/myFirstShiny/
+when: 1680923741.43931
+lastSyncTime: 1680923741.43933
+asMultiple: FALSE
+asStatic: FALSE
